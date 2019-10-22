@@ -1,0 +1,185 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // The following commands replace the standard esp commands as the Amazon FreeRtos includes many of the tools 
+        // from the espressif toolchain. https://docs.aws.amazon.com/freertos/latest/userguide/getting_started_espressif.html
+        {
+            "label": "Amazon cmake",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": ""
+                },
+            //make sure you update the build directory after the -B
+            "command" : "cmake -DVENDOR=espressif -DBOARD=esp32_wrover_kit -DCOMPILER=xtensa-esp32 -GNinja -S . -B C:/Users/vince.difatta/dev/amazon-freertos/build",
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        //Use Espressif's IDF utility (<amazon-freertos>/vendors/espressif/esp-idf/tools/idf.py) to flash your board, run the application, and see logs.
+        {
+            "label": "Amazon clean all",
+            "command": "",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        //
+        {
+            "label": "Amazon flash",
+            "command": "./vendors/espressif/esp-idf/tools/idf.py flash -p com4 -B C:/Users/vince.difatta/dev/amazon-freertos/build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Amazon idf monitor",
+            //make sure to change your port (-p) /com3
+            "command": "./vendors/espressif/esp-idf/tools/idf.py monitor -p /dev/ttyUSB1 -B build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            //To erase the board's flash, go to the <amazon-freertos> directory and use the following command:
+            "label": "Amazon idf erase flash",
+            "type": "shell",
+            "isBackground": true,
+            "command": "./vendors/espressif/esp-idf/tools/idf.py erase_flash -B build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        //------------------------------------------------------------------------------
+        //---------------------------- Espressif Tasks ---------------------------------
+        // These tasks use the IDFPY Tool take comes with expressif, not AWS Freertos
+        // uncomment the IDF_PATH in the settings file
+        // and open a new terminal
+        //------------------------------------------------------------------------------
+        {
+            "label": "Espressif IDFPY build",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py build",
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Espressif clean",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py clean",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Espressif Fullclean",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py fullclean",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Espressif Flash",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py -p COM3 flash",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Espressif Monitor",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py -p COM33 monitor",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        //This is the debugger to use with JTAG, still need to figure this out
+        {
+            "label": "openocd",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "openocd -f interface/jlink.cfg -f board/esp-wroom-32.cfg",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        //Using this to debug
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo ${workspaceFolder}",
+            //"command": "echo ${workspaceFolderBasename}",
+            //"command": "echo ${file}",
+            //"command": "echo ${relativeFile}",
+            //"command": "echo ${relativeFileDirname}",
+            //"command": "echo ${fileBasename}",
+            //"command": "echo ${fileBasename}",
+            //"command": "echo ${fileDirname}",
+            //"command": "echo ${fileExtname}",
+            //"command": "echo ${lineNumber}",
+            //"command": "echo ${selectedText}",
+            //"command": "echo ${execPath}",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+    ]
+}

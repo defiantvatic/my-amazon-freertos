@@ -1,0 +1,26 @@
+{
+    "terminal.integrated.env.windows":{
+        //set the environment varaiable to the esp-idf library
+        // You will need to comment this out for Amazon FreeRTOS to work correctly
+        "IDF_PATH":"${env:USERPROFILE}\\esp3v3\\esp-idf",
+
+        //set the enviroment variable to the esp-idf tool chain
+        //"IDF_TOOLS_PATH":"${env:USERPROFILE}\\.espressif",
+        //append IDF Tools path
+        //"PATH":"${env:PATH}$
+        //{env:IDF_TOOLS_PATH}\\tools\\xtensa-esp32-elf\\1.22.0-80-g6c4433a5-5.2.0\\xtensa-esp32-elf\\bin;
+        //${env:IDF_TOOLS_PATH}\\tools\\esp32ulp-elf\\2.28.51.20170517\\esp32ulp-elf-binutils\\bin;
+        //${env:IDF_TOOLS_PATH}\\tools\\cmake\\3.13.4\\bin;
+        //${env:IDF_TOOLS_PATH}\\tools\\openocd-esp32\\v0.10.0-esp32-20190313\\openocd-esp32\\bin;
+        //${env:IDF_TOOLS_PATH}\\tools\\mconf\\v4.6.0.0-idf-20190628\\;
+        //${env:IDF_TOOLS_PATH}\\tools\\ninja\\1.9.0\\;
+        //${env:IDF_TOOLS_PATH}\\tools\\idf-exe\\1.0\\;
+        //${env:IDF_TOOLS_PATH}\\tools\\ccache\\3.7\\;
+        //${env:IDF_TOOLS_PATH}\\python_env\\idf3.3_py3.7_env\\Scripts;
+        //${env:IDF_PATH}\\esp3v3\\esp-idf\\tools;"
+        //This is the normal path, prior to adding the AWS freeRTOS stuff.
+        //"PATH":"${env:PATH}${env:IDF_TOOLS_PATH}\\tools\\xtensa-esp32-elf\\1.22.0-80-g6c4433a5-5.2.0\\xtensa-esp32-elf\\bin;${env:IDF_TOOLS_PATH}\\tools\\esp32ulp-elf\\2.28.51.20170517\\esp32ulp-elf-binutils\\bin;${env:IDF_TOOLS_PATH}\\tools\\cmake\\3.13.4\\bin;${env:IDF_TOOLS_PATH}\\tools\\openocd-esp32\\v0.10.0-esp32-20190313\\openocd-esp32\\bin;${env:IDF_TOOLS_PATH}\\tools\\mconf\\v4.6.0.0-idf-20190628\\;${env:IDF_TOOLS_PATH}\\tools\\ninja\\1.9.0\\;${env:IDF_TOOLS_PATH}\\tools\\idf-exe\\1.0\\;${env:IDF_TOOLS_PATH}\\tools\\ccache\\3.7\\;${env:IDF_TOOLS_PATH}\\python_env\\idf3.3_py3.7_env\\Scripts;${env:IDF_PATH}\\esp3v3\\esp-idf\\tools;"
+        //This version of the path removes the esp-idf\tools path as directed by Amazon
+        "PATH":"${env:PATH}${env:IDF_TOOLS_PATH}\\tools\\xtensa-esp32-elf\\1.22.0-80-g6c4433a5-5.2.0\\xtensa-esp32-elf\\bin;${env:IDF_TOOLS_PATH}\\tools\\esp32ulp-elf\\2.28.51.20170517\\esp32ulp-elf-binutils\\bin;${env:IDF_TOOLS_PATH}\\tools\\cmake\\3.13.4\\bin;${env:IDF_TOOLS_PATH}\\tools\\openocd-esp32\\v0.10.0-esp32-20190313\\openocd-esp32\\bin;${env:IDF_TOOLS_PATH}\\tools\\mconf\\v4.6.0.0-idf-20190628\\;${env:IDF_TOOLS_PATH}\\tools\\ninja\\1.9.0\\;${env:IDF_TOOLS_PATH}\\tools\\idf-exe\\1.0\\;${env:IDF_TOOLS_PATH}\\tools\\ccache\\3.7\\;${env:IDF_TOOLS_PATH}\\python_env\\idf3.3_py3.7_env\\Scripts;"
+    }
+}
