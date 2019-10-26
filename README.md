@@ -4,7 +4,7 @@ This repo uses [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodu
 Note: If you download the ZIP file provided by GitHub UI, you will not get the contents of the submodules. (The ZIP file is also not a valid git repository)
 
 # NOTE:
-This is my verision of aws-freertos modified specifically for the ESP32. It adds setting.json so when the command window is launchd the correct environment is setup. The tasks.json allows you to run the commands to build and flash. I am still working on this and it partialy works, so use and adjust at you own risk. 
+This is my verision of aws-freertos modified specifically for the ESP32 and targeted to the VSCODE IDE. It adds setting.json so when the command window is launchd the correct environment is setup. The tasks.json allows you to run the commands to build and flash. I am still working on this and it partialy works, so use and adjust at you own risk. 
 
 To clone using HTTPS:
 ```
