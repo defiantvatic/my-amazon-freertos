@@ -2,7 +2,7 @@
     "terminal.integrated.env.windows":{
         //set the environment varaiable to the esp-idf library
         // You will need to comment this out for Amazon FreeRTOS to work correctly
-        "IDF_PATH":"${env:USERPROFILE}\\esp3v3\\esp-idf",
+        //"IDF_PATH":"${env:USERPROFILE}\\esp3v3\\esp-idf",
 
         //set the enviroment variable to the esp-idf tool chain
         //"IDF_TOOLS_PATH":"${env:USERPROFILE}\\.espressif",

@@ -1,0 +1,76 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        //------------------------------------------------------------------------------
+        //---------------------------- Espressif Tasks ---------------------------------
+        // These tasks use the IDFPY Tool take comes with expressif, not AWS Freertos
+        // uncomment the IDF_PATH in the settings file
+        // and open a new terminal
+        //------------------------------------------------------------------------------
+        {
+            "label": "Espressif IDFPY build",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py build",
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Espressif clean",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py clean",
+            "problemMatcher": []
+        },
+        {
+            "label": "Espressif Fullclean",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py fullclean",
+            "problemMatcher": []
+        },
+        {
+            "label": "Espressif Flash",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py -p COM3 flash",
+            "problemMatcher": []
+        },
+        {
+            "label": "Espressif Monitor",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "idf.py -p COM33 monitor",
+            "problemMatcher": []
+        },
+        //This is the debugger to use with JTAG, still need to figure this out
+        {
+            "label": "openocd",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+                },
+            "command" : "openocd -f interface/jlink.cfg -f board/esp-wroom-32.cfg",
+            "problemMatcher": []
+        },
+    ]
+}
